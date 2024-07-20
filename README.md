@@ -1,5 +1,5 @@
 # MP3Player
-author: My Khanh Phan
+
 
 <img width="800" alt="Screenshot 2024-07-20 at 05 23 53" src="https://github.com/user-attachments/assets/a258250a-96cc-45a6-83b4-357224df7f91">
 
