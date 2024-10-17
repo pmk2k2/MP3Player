@@ -1,27 +1,40 @@
 package presentation.uicomponents;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 
 public class ControlView extends HBox {
 	
 	public Button skipBackButton;
-	public Button playButton;
+	public ToggleButton playPauseButton;
 	public Button skipButton;
+	public Button shuffleButton;
+	public Button repeatButton;
 	
 	public ControlView() {
-		skipBackButton = new Button("skip back");
+		shuffleButton = new Button();
+		shuffleButton.getStyleClass().add("icon-button");
+		shuffleButton.setId("shuffle-button");
+
+		skipBackButton = new Button();
 		skipBackButton.getStyleClass().add("icon-button");
+		skipBackButton.setId("skipback-button");
 
-		playButton = new Button();
-		playButton.getStyleClass().add("icon-button");
-		playButton.setId("play-button");
+		playPauseButton= new ToggleButton();
+		playPauseButton.getStyleClass().add("icon-button");
+		playPauseButton.setId("play-button");
 
-		skipButton = new Button("skip");
+		skipButton = new Button();
 		skipButton.getStyleClass().add("icon-button");
+		skipButton.setId("skip-button");
+
+		repeatButton = new Button();
+		repeatButton.getStyleClass().add("icon-button");
+		repeatButton.setId("repeat-button");
 
 		this.setId("control-bar");
-		this.getChildren().addAll(skipBackButton, playButton, skipButton);
+		this.getChildren().addAll(shuffleButton, skipBackButton, playPauseButton, skipButton, repeatButton);
 	
 	}
 

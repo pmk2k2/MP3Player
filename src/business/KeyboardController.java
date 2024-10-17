@@ -22,7 +22,7 @@ public class KeyboardController {
                 break;
             }
             switch (commands[0]) {
-                case "play" -> mp3player.play();
+                case "play" -> mp3player.play("");
                 case "pause" -> mp3player.pause();
                 case "volume" -> {
                     float v = sc.nextFloat();
@@ -31,7 +31,7 @@ public class KeyboardController {
                 case "selectplaylist" -> {
                     String name= sc.next();
                     if (name.equals("playlist1")) {
-                        Playlist selectedPlaylist = playlistManager.createPlaylistFromM3U("/Users/macbook/IdeaProjects/eibo1/src/Tracks/list.m3u");
+                        Playlist selectedPlaylist = playlistManager.createPlaylistFromM3U("/Users/macbook/IdeaProjects/eibo/src/tracks/list.m3u");
                         selectedPlaylist.setTitle(name);
                         selectedPlaylist=playlistManager.getPlaylist(name);
                         mp3player.setPlaylist(selectedPlaylist);
@@ -52,6 +52,12 @@ public class KeyboardController {
                 }
                 case "skipback" -> {
                     mp3player.skipBack();
+                }
+                case "shuffle" -> {
+                    mp3player.shuffle(true);
+                }
+                case "repeat" ->{
+                    mp3player.repeat(true);
                 }
             }
         }while(true);

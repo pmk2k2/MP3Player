@@ -1,0 +1,81 @@
+#player-view{
+-fx-alignment: center;
+-fx-padding: 10pt;
+}
+#player-header {
+-fx-alignment: center;
+-fx-padding: 20 10 10 10;
+}
+#label-container{
+-fx-alignment: center;
+}
+#control-bar{
+-fx-alignment: center;
+-fx-padding: 10pt;
+-fx-spacing: 5pt;
+}
+#volume-bar{
+-fx-alignment: center;
+-fx-padding: 10pt;
+-fx-spacing: 5pt;
+}
+#time-bar{
+-fx-alignment: center;
+-fx-padding: 10pt;
+-fx-spacing: 5pt;
+}
+#bottom-container{
+-fx-alignment: center;
+-fx-padding: 5pt 10pt;
+}
+.icon-button {
+  -fx-min-width: 32;
+  -fx-min-height: 32;
+  -fx-background-color: transparent;
+  -fx-background-repeat: no-repeat no-repeat;
+  -fx-background-size: 28 28;
+  -fx-background-position: center;
+}
+.icon-button:hover{
+-fx-cursor: hand;
+}
+#play-button {
+-fx-background-image: url("/assets/play.png");
+}
+#pause-button{
+-fx-background-image: url("/assets/pause.png");
+}
+#skip-button{
+-fx-background-image: url("/assets/skip.png");
+}
+#skipback-button{
+-fx-background-image: url("/assets/skipback.png");
+}
+#shuffle-button{
+-fx-background-image: url("/assets/shuffle.png")
+}
+#repeat-button{
+-fx-background-image: url("/assets/repeat.png")
+}
+#volume-button-low{
+-fx-background-image: url("/assets/volumeLow.png")
+}
+#volume-button-high{
+-fx-background-image: url("/assets/volumeHigh.png")
+}
+#playlist-button{
+-fx-background-size: 20 20;
+-fx-background-image: url("/assets/back.png")
+}
+.list-cell:even {
+-fx-background-color: #0a0a0a;
+}
+.list-cell:odd {
+-fx-background-color: #191919;
+}
+.list-cell:selected {
+   -fx-background-color: black;
+}
+.list-cell:hover{
+-fx-cursor: hand;
+}

@@ -24,6 +24,13 @@ public class PlaylistManager {
         return null;
     }
 
+    public List<Playlist> getAllPlaylists() {
+        List<Playlist> playlistTitles = new ArrayList<>();
+        for (Playlist playlist : playlists) {
+            playlistTitles.add(playlist);
+        }
+        return playlistTitles;
+    }
     public List<Track> getAllTracks() {
         List<Track> allTracks = new ArrayList<>();
 
@@ -42,6 +49,7 @@ public class PlaylistManager {
                 if (line.startsWith("/") && line.endsWith(".mp3")) {
                     mp3FilePaths.add(line);
                 }
+                //Wenn es ein Problem mit dem einlesen des Filepaths gibt,dann lösche die IF-Abfrage
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,9 +63,9 @@ public class PlaylistManager {
             String title = mp3File.getId3v2Tag().getTitle();
             String artist = mp3File.getId3v2Tag().getArtist();
             String album = mp3File.getId3v2Tag().getAlbum();
-            int length = (int) mp3File.getLength();
-
-            return new Track(title, artist, length, album, mp3FilePath);
+            int length = (int) mp3File.getLengthInSeconds();
+            byte[] imageData = mp3File.getId3v2Tag().getAlbumImage();
+            return new Track(title, artist, length, album, mp3FilePath, imageData);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -77,4 +85,6 @@ public class PlaylistManager {
 
         return playlist;
     }
+
+
 }

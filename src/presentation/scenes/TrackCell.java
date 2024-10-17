@@ -1,7 +1,6 @@
-package presentation.scenes.playlistview;
+package presentation.scenes;
 
 import business.Track;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
@@ -12,18 +11,18 @@ public class TrackCell extends ListCell<Track> {
 	VBox infoPane;
 	Label title;
 	Label artist;
-	CheckBox check;
 	
 	public TrackCell() {
-		// View-Definition
 		infoPane = new VBox();
 		title = new Label();
+		title.setStyle("-fx-text-fill: white");
 		artist = new Label();
+		artist.setStyle("-fx-text-fill: white");
 		infoPane.getChildren().addAll(title, artist);
 
 		root = new HBox();
-		check = new CheckBox();
-		root.getChildren().addAll(check, infoPane);
+		root.getChildren().addAll(infoPane);
+		root.setId("list-cell");
 		
 	}
 	
@@ -34,7 +33,6 @@ public class TrackCell extends ListCell<Track> {
 		if (!empty) {
 			title.setText(item.getTitle());
 			artist.setText(item.getArtist());
-			check.setSelected(false);
 			
 			this.setGraphic(root);
 		} else {

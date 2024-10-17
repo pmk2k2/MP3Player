@@ -3,13 +3,15 @@ package business;
 public class Track {
     private String title, artist, album, mp3FilePath;
     private int length;
+    private byte[] imageData;
 
-    public Track(String title, String artist, int length, String album, String mp3FilePath) {
+    public Track(String title, String artist, int length, String album, String mp3FilePath, byte[] imageData) {
         this.title=title;
         this.artist=artist;
         this.length=length;
         this.album=album;
         this.mp3FilePath=mp3FilePath;
+        this.imageData = imageData;
     }
 
     public String getTitle() {
@@ -51,4 +53,18 @@ public class Track {
     public void setLength(int length) {
         this.length = length;
     }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
+
+    @Override
+    public String toString() {
+        return getTitle()+" - " +getArtist();
+    }
+
 }

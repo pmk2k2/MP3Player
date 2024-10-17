@@ -1,14 +1,12 @@
 package application;
 
 import business.MP3Player;
-import presentation.PlayerViewController;
-import presentation.PlaylistViewController;
-import presentation.Scenes;
-import presentation.ViewController;
+import business.PlaylistManager;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import presentation.scenes.*;
 
 import java.util.HashMap;
 
@@ -18,10 +16,12 @@ public class App extends Application {
     private HashMap<Scenes, Pane> scenes;
 
     private MP3Player mp3Player;
+    private PlaylistManager playlistManager;
 
     @Override
     public void init() {
         mp3Player = new MP3Player();
+        playlistManager = new PlaylistManager();
         scenes = new HashMap<>();
     }
 
@@ -33,13 +33,18 @@ public class App extends Application {
             controller = new PlayerViewController(this, mp3Player);
             scenes.put(Scenes.PLAYER_VIEW,  controller.getRootView());
 
-            controller = new PlaylistViewController(this, mp3Player);
+            controller = new PlaylistViewController(this,mp3Player,playlistManager);
             scenes.put(Scenes.PLAYLIST_VIEW, controller.getRootView());
 
+//            controller = new LibraryViewController(this,mp3Player,playlistManager);
+//            scenes.put(Scenes.LIBRARY_VIEW, controller.getRootView());
+
             Pane root = scenes.get(Scenes.PLAYLIST_VIEW);
-            scene = new Scene(root,400,400);
+            scene = new Scene(root,800,600);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             primaryStage.setScene(scene);
+            primaryStage.setMinWidth(800);
+            primaryStage.setMinHeight(600);
             primaryStage.show();
         } catch(Exception e) {
             e.printStackTrace();

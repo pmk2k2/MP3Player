@@ -1,4 +1,4 @@
-
+package presentation.uicomponents;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -18,7 +18,7 @@ import javafx.scene.layout.Region;
 *
 * @author akouznet
 */
-class ImageViewPane extends Region {
+public class ImageViewPane extends Region {
 
    private ObjectProperty<ImageView> imageViewProperty = new SimpleObjectProperty<ImageView>();
 
